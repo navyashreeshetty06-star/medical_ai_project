@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-POWERED MEDICAL IMAGE ANALYSIS</title>
+
+    <!-- External CSS file in /static -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        .menubar{
+            background-color: rgb(12, 12, 93);
+            text-align: center;
+        }
+        .menubar ul{
+            display: inline-flex;
+            list-style: none;
+        }
+        .menubar ul li{
+            width: 200px;
+            margin: 10px;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .menubar ul li a{
+            text-decoration: none;
+            color: azure;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .menubar .fa{
+            margin-right: 10px;
+            color: white;
+        }
+        .menubar ul li:hover{
+            border-radius: 10px;
+            text-decoration: underline;
+            text-decoration-color: white;
+            text-decoration-thickness: 2px;
+        }
+        .submenu{
+            display: none;
+        }
+        .menubar ul li:hover .submenu{
+            display: block;
+            position: absolute;
+            margin-top: 2px;
+            margin-left: 10px;
+            font-size: larger;
+        }
+        .menubar ul li:hover .submenu ul{
+            display: block;
+        }
+        .menubar ul li:hover .submenu ul li{
+            width: 150px;
+            height: 20px;
+            padding: 10px;
+            border-bottom: 2px white;
+            border-radius: 15px;
+            text-align: left;
+            background-color: rgb(175, 9, 221);
+            text-decoration: none;
+        }
+        .menubar ul li:hover .submenu ul li a:hover{
+            color: rgb(122, 238, 120);
+            border-radius: 10px;
+        }
+        .box{
+            width: 100%;
+            height: 60px;
+            background-color: rgb(243, 247, 243);
+            position: relative;
+            bottom: 4px;
+        }
+        .box h1{
+            position: relative;
+            top: 10px;
+            text-align: center;
+            color: rgb(66, 8, 204);
+            font-weight: 900;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1><u><b>AI-POWERED MEDICAL IMAGE ANALYSIS</b></u></h1>
+    </div>
+
+    <div class="menubar">
+        <ul>
+    <li><a href="{{ url_for('home') }}">HOME</a></li>
+    <li><a href="{{ url_for('about') }}">About Us</a></li>
+
+    <li style="color: white;">
+        <a href="#">Medical Services</a>
+        <i class="fa-solid fa-caret-down"></i>
+        <div class="submenu">
+            <ul>
+                <li><a href="{{ url_for('service_dashboard') }}">PNEUMONIA</a></li>
+                <li><a href="{{ url_for('service_dashboard') }}">BRAIN TUMOR</a></li>
+                <li><a href="{{ url_for('service_dashboard') }}">KIDNEY STONE</a></li>
+            </ul>
+        </div>
+    </li>
+
+    <li><a href="#">Contact</a></li>
+</ul>
+    </div>
+
+    <!-- Big banner image -->
+    <div>
+        <!-- move this JPG into the static/ folder -->
+        <img src="{{ url_for('static', filename='119703ec-39e6-4151-a77d-16d77bfcdbf7.jpg') }}"
+             width="1536px" height="615px">
+    </div>
+</body>
+</html>
