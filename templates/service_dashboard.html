@@ -6,37 +6,70 @@
     <title>Medical Analysis Dashboard</title>
 
     <!-- connect your CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='service_dashboard.css') }}">
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='service_dashboard.css') }}"> -->
 
     <style>
+        /* .maindiv
+{
+    margin-top: 100px;
+    width: 700px;
+    height: 500px;
+    border: 2px solid black;
+    margin: auto;
+    background-color:white;
+    border-radius: 20px;
+} */
+/* input
+{
+    width: 200px;
+    height: 40px;
+    border-radius: 15px;
+    text-align: center;
+    background-color: rgb(242, 244, 244);
+} */
+#image
+{
+    border: 2px dashed blue;
+    margin-top: 30px;
+    margin-left: 2px;
+    font-size: 20px;
+    text-align: center;
+}
+
+ /* .form-group
+ {
+    margin-top: 5px;
+ } */
         .maindiv{
             margin-top: 100px;
-            width: 400px;
-            height: 480px;
+            width: 500px;
+            height: 460px;
             border: 2px solid black;
             margin: auto;
             background-color: white;
-            border-radius: 20px;
+            border-radius: 10px;
             padding: 20px;
+            
         }
-        input, select{
-            width: 200px;
-            height: 40px;
-            border-radius: 15px;
+        input{
+            width: 450px;
+            height: 30px;
+            border-radius: 5px;
             text-align: center;
-            background-color: rgb(242, 244, 244);
-            margin-top: 5px;
+            background-color: white;
+            margin-top: 10px;
+            /* margin-left:2px; */
         }
         #image{
-            margin-top: 30px;
+            /* margin-top: 30px;
             margin-left: 30px;
-            font-size: 20px;
+            font-size: 20px; */
         }
         button{
-            width: 300px;
-            margin-left: 30px;
+            width: 400px;
+            margin-left: 50px;
             height: 60px;
-            background-color: rgb(11, 227, 97);
+            background-color: rgb(109, 122, 243);
             border-radius: 20px;
             font-size: larger;
             margin-top: 25px;
@@ -50,29 +83,32 @@
 
 <body>
 <div class="maindiv">
-    <h2 style="text-align:center; margin-bottom:10px;">Chest X-ray Analysis</h2>
-
+    <h2 style="text-align:center; margin-bottom:10px;margin-top: 5px;border: 3px dotted rgb(100, 231, 91);margin-left: 10px;border-radius: 5px;height: 40px;"><u>CHEST X-RAY ANALYSIS</u></h2>
     <!-- IMPORTANT: action uses Flask route 'predict' and file input name MUST be "image" -->
     <form action="{{ url_for('predict') }}" method="post" enctype="multipart/form-data">
         <!-- Patient details -->
-        <div class="form-group" style="margin-left:30px;">
-            <label for="patientId">Patient ID</label><br>
-            <input type="text" id="patientId" name="patient_id" placeholder="e.g. PID-1234">
+        <div class="form-group" style="margin-left:30px; margin-top: 20px;">
+            <label for="patientId">Patient ID : </label><br>
+            <input type="text" id="patientId" name="patient_id" placeholder="e.g. PID-1234" >
+            <br>
         </div>
 
         <div class="form-group" style="margin-left:30px; margin-top:10px;">
-            <label for="patientName">Patient Name</label><br>
-            <input type="text" id="patientName" name="patient_name" placeholder="John Doe">
+            <label for="patientName">Patient Name : </label><br>
+            <input type="text" id="patientName" name="patient_name" placeholder="John Doe" >
+            <br>
         </div>
 
         <div class="form-group" style="margin-left:30px; margin-top:10px;">
-            <label for="age">Age</label><br>
-            <input type="number" id="age" name="age" min="0">
+            <label for="age">Age : </label><br>
+            <input type="number" id="age" name="age" min="0" style="width: 180px;">
         </div>
 
-        <div class="form-group" style="margin-left:30px; margin-top:10px;">
-            <label for="gender">Gender</label><br>
-            <select id="gender" name="gender">
+        <div class="form-group" style="margin-left:30px; margin-top:-60px;">
+            <label for="gender" style="margin-left: 250px; ">Gender : </label>
+            <br><br>
+            <select id="gender" name="gender" style="margin-left: 250px;height: 35px;margin-top: -15px;width:200px ;background-color: white;border-radius: 5px;">
+                
                 <option value="" disabled selected>Select</option>
                 <option value="Female">Female</option>
                 <option value="Male">Male</option>
@@ -81,20 +117,20 @@
         </div>
 
         <!-- File upload -->
-        <div id="image">
-            <label for="imageUpload">Upload Chest X-ray</label><br>
+        <div id="image" >
+            <label for="imageUpload" style="text-align: center;margin-top: 20px;">Upload Chest X-ray</label><br>
             <!-- name="image" MUST match request.files["image"] in app.py -->
-            <input type="file" id="imageUpload" name="image" accept="image/*" required>
+            <input type="file" id="imageUpload" name="image" accept="image/*" required style=" width: 480px;height: 30px;background-color: white;margin-top: 10px;">
         </div>
-
+        <br>
         <!-- Analyse button -->
-        <button type="submit" class="analyse-btn">Analyse the Image</button>
+        <button type="submit" class="analyse-btn" style="width: 505px;height: 40px;border-radius: 5px;margin-left: -2px; background-color: blue;color: white;margin-top: 10px;">Analyse the Image</button>
     </form>
-
+    <br><br><br><br>
     {% if prediction %}
     <div class="result-box">
-        <h3>Result: {{ prediction }}</h3>
-        <p>Confidence: {{ confidence }}</p>
+    <h3>Result: {{ prediction }}</h3>
+    <p>Confidence: {{ confidence }}</p>
     </div>
     {% endif %}
 </div>

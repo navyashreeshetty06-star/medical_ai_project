@@ -1,4 +1,4 @@
-.maindiv
+/* .maindiv
 {
     margin-top: 100px;
     width: 400px;
@@ -22,9 +22,9 @@ input
     /* width: 250px; */
     /* height: 200px; */
     /* background-color: rgb(250, 206, 241); */
-    margin-left: 30px;
+    /* margin-left: 30px;
     font-size: 20px;
-}
+} */
 button
 {
     width: 300px;
@@ -33,4 +33,42 @@ button
     background-color: rgb(11, 227, 97);
     border-radius: 20px;
     font-size: larger;
-}
+} */
+ .maindiv{
+            margin-top: 100px;
+            width: 500px;
+            height: 460px;
+            border: 2px solid black;
+            margin: auto;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+        }
+        input {
+            width: 450px;
+            height: 330px;
+            border-radius: 5px;
+            text-align: center;
+            background-color: white;
+            margin-top: 10px;
+        }
+        #image{
+            margin-top: 30px;
+            margin-left: 2px;
+            font-size: 20px;
+            text-align: center;
+            border: 2px dashed blue;
+        }
+        button{
+            width: 400px;
+            margin-left: 50px;
+            height: 60px;
+            background-color: rgb(109,122,243);
+            border-radius: 20px;
+            font-size: larger;
+            margin-top: 25px;
+        }
+        .result-box{
+            margin-top: 20px;
+            text-align: center;
+        }
